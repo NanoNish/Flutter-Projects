@@ -22,6 +22,7 @@ class MyHomePage extends StatefulWidget {
 
 class _MyHomePageState extends State<MyHomePage> {
   bool _state = true;
+  int count = 0;
 
   @override
   void initState() {
@@ -29,6 +30,7 @@ class _MyHomePageState extends State<MyHomePage> {
     ShakeDetector detector = ShakeDetector.autoStart(onPhoneShake: () {
       setState(() {
         _state = !_state;
+        count = (count++) % 2;
       });
       //print(_state);  //for testing purposes
     });

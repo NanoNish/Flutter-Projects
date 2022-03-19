@@ -21,35 +21,51 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  bool _state = true;
+  int count = 0;
 
   @override
   void initState() {
     super.initState();
     ShakeDetector detector = ShakeDetector.autoStart(onPhoneShake: () {
       setState(() {
-        _state = !_state;
+        count = count + 1;
+        count = (count) % 4;
       });
-      //print(_state);  //for testing purposes
+      print(count); //for testing purposes
     });
   }
-
-  double height = MediaQuery.of(context).size.height;
-  double width = MediaQuery.of(context).size.width;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Column(children: [
-        Container(
-          color: _state == true ? Colors.black : Colors.red,
-          height: 400,
-          width: 500,
+        Expanded(
+          child: Container(
+            color: count / 2 == 0 || count / 2 == 0.5
+                ? (count % 2 == 0 ? Colors.red : Colors.yellow)
+                : (count % 2 == 0 ? Colors.blue : Colors.green),
+          ),
         ),
-        Container(
-          color: _state == true ? Colors.red : Colors.black,
-          height: 400,
-          width: 500,
+        Expanded(
+          child: Container(
+            color: count / 2 == 0 || count / 2 == 0.5
+                ? (count % 2 == 0 ? Colors.yellow : Colors.blue)
+                : (count % 2 == 0 ? Colors.green : Colors.red),
+          ),
+        ),
+        Expanded(
+          child: Container(
+            color: count / 2 == 0 || count / 2 == 0.5
+                ? (count % 2 == 0 ? Colors.blue : Colors.green)
+                : (count % 2 == 0 ? Colors.red : Colors.yellow),
+          ),
+        ),
+        Expanded(
+          child: Container(
+            color: count / 2 == 0 || count / 2 == 0.5
+                ? (count % 2 == 0 ? Colors.green : Colors.red)
+                : (count % 2 == 0 ? Colors.yellow : Colors.blue),
+          ),
         ),
       ]),
     );
