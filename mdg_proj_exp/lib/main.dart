@@ -1,8 +1,11 @@
+//import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:shake/shake.dart';
+//import 'package:video_player/video_player.dart';
 
 void main() {
   runApp(MyApp());
+  //runApp(VideoPlayerApp());
 }
 
 class MyApp extends StatelessWidget {
@@ -10,12 +13,17 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MyHomePage(),
+      theme: ThemeData(
+        primarySwatch: Colors.orange,
+      ),
+      home: MyHomePage(title: 'MDG Recruitment Submission'),
     );
   }
 }
 
 class MyHomePage extends StatefulWidget {
+  const MyHomePage({Key? key, required this.title}) : super(key: key);
+  final String title;
   @override
   _MyHomePageState createState() => _MyHomePageState();
 }
@@ -31,13 +39,16 @@ class _MyHomePageState extends State<MyHomePage> {
         count = count + 1;
         count = (count) % 4;
       });
-      print(count); //for testing purposes
+      //print(count); //for testing purposes
     });
   }
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.title),
+      ),
       body: Column(children: [
         Expanded(
           child: Container(
