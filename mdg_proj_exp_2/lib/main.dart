@@ -93,20 +93,20 @@ class VideoApp extends StatefulWidget {
 }
 
 class _VideoAppState extends State<VideoApp> {
-  VideoPlayerController _controller = VideoPlayerController.network(
-      'https://www.youtube.com/watch?v=dQw4w9WgXcQ&lc=Ugx5eioe8QbJJGWVZ0x4AaABAg&t=43s');
+  VideoPlayerController _controller =
+      VideoPlayerController.network('https://i.imgur.com/MxAE8Wp.mp4');
 
   @override
   void initState() {
     super.initState();
-    _controller = VideoPlayerController.network(
-        'https://www.youtube.com/watch?v=dQw4w9WgXcQ&lc=Ugx5eioe8QbJJGWVZ0x4AaABAg&t=43s')
-      ..initialize().then((_) {
-        // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
-        setState(() {
-          _controller.play();
-        });
-      });
+    _controller =
+        VideoPlayerController.network('https://i.imgur.com/MxAE8Wp.mp4')
+          ..initialize().then((_) {
+            // Ensure the first frame is shown after the video is initialized, even before the play button has been pressed.
+            setState(() {
+              _controller.play();
+            });
+          });
   }
 
   @override

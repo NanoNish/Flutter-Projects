@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.mdg_proj_exp_2">
    <application
-        android:label="mdg_proj_exp_2"
+        android:label="Sp-Lit"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
